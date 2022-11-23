@@ -13,7 +13,7 @@ describe('DataService', () => {
       'saveData',
     ]);
     storageSpy.getData.and.returnValue(`[
-      {"codePoint":128512,"character":"😀","sold":false}
+      {"codePoint":128512,"character":"😀","group":"Smiley Face","name":"Smiling face","sold":false}
     ]`);
 
     TestBed.configureTestingModule({
@@ -28,7 +28,13 @@ describe('DataService', () => {
 
   it('should return data', () => {
     expect(service.getData()).toEqual([
-      { codePoint: 128512, character: '😀', sold: false },
+      {
+        codePoint: 128512,
+        character: '😀',
+        group: 'Smiley Face',
+        name: 'Smiling face',
+        sold: false,
+      },
     ]);
   });
 });
