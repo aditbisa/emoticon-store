@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { EmoticonListModule } from './emoticon-list.module';
 import { EmoticonListComponent } from './emoticon-list.component';
 
 describe('EmoticonListComponent', () => {
@@ -9,8 +8,8 @@ describe('EmoticonListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmoticonListComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [EmoticonListComponent],
+      imports: [EmoticonListModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(EmoticonListComponent);
