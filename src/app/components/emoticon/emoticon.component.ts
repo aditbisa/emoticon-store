@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Emoticon } from '@core/services';
+import { Emoticon } from '@core/schema';
 
 @Component({
   selector: 'app-emoticon',

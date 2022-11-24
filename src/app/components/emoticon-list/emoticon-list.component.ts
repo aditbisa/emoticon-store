@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, Emoticon } from '@core/services';
+import { Emoticon } from '@core/schema';
+import { DataService } from '@core/services';
 
 @Component({
   selector: 'app-emoticon-list',

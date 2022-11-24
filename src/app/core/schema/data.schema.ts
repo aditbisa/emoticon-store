@@ -6,6 +6,8 @@ export interface Emoticon {
   sold: boolean;
 }
 
+export const EMOTICONS_STORAGE_KEY = 'emoticons';
+
 // Code Point, Group, Name
 export const DATA_EMOTICONS: any = [
   [128512, 'Smiley Face', 'Smiling face'],
