@@ -26,8 +26,8 @@
     "paths": {
       "@env": ["src/environments/environment.ts"],
       "@core/*": ["src/app/core/*"],
-      "@components/*": ["src/app/components/*"]
-    }
+      "@components/*": ["src/app/components/*"],
+      "@contracts/*": ["smart-contracts/build/contracts/*"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
