@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Emoticon } from '@core/schema';
+import { EMOTICONS } from '@core/data';
+
 import { StorageService } from './storage.service';
-import { DATA_EMOTICONS, EMOTICONS_STORAGE_KEY, Emoticon } from '@core/schema';
+
+const EMOTICONS_STORAGE_KEY = 'emoticons';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +18,7 @@ export class DataService {
 
   private generateData(): Emoticon[] {
     const data: Emoticon[] = [];
-    for (let e of DATA_EMOTICONS) {
+    for (let e of EMOTICONS) {
       const emot: Emoticon = {
         codePoint: e[0],
         character: String.fromCodePoint(e[0]),
