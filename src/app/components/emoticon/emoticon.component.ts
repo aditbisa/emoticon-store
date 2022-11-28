@@ -1,29 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Emoticon } from '@core/schema';
-import { environment as env } from '@env';
-import { ContractService } from '@core/services';
+import { Component, Input } from '@angular/core';
+import { Emoticon, EmoticonState } from '@core/schema';
+import { DataService } from '@core/services';
 
 @Component({
   selector: 'app-emoticon',
   templateUrl: './emoticon.component.html',
   styleUrls: ['./emoticon.component.scss'],
 })
-export class EmoticonComponent implements OnInit {
+export class EmoticonComponent {
+  State = EmoticonState;
+
   @Input() emoticon!: Emoticon;
 
-  constructor(
-    private contractService: ContractService,
-  ) {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit() {
-    this.contractService.Purchase$.subscribe((data) => {
-      if (data.codePoint == this.emoticon.codePoint) {
-        this.emoticon.sold = true;
-      }
+  public purchase() {
+    this.dataService.purchaseEmoticon(this.emoticon.codePoint).subscribe(() => {
+      this.emoticon = this.dataService.getEmoticon(this.emoticon.codePoint);
     });
-  }
-
-  public async purchase() {
-    await this.contractService.purchase(env.testBuyerAddress, this.emoticon.codePoint, "1000000");
   }
 }

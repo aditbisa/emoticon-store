@@ -13,6 +13,6 @@ export class EmoticonListComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.emoticons = this.dataService.getData();
+    this.emoticons = this.dataService.getCollection();
   }
 }

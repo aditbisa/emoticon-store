@@ -1,20 +1,33 @@
-<ion-card [class.sold]="emoticon?.sold">
+<ion-card *ngIf="emoticon" [class.sold]="emoticon.state == State.Sold">
   <svg>
-    <text text-anchor="middle" x="50%" y="80%">{{ emoticon?.character }}</text>
+    <text text-anchor="middle" x="50%" y="80%">{{ emoticon.character }}</text>
   </svg>
 
   <ion-card-header>
-    <ion-card-title>#{{ emoticon?.codePoint }}</ion-card-title>
+    <ion-card-title>#{{ emoticon.codePoint }}</ion-card-title>
   </ion-card-header>
 
-  <ion-card-content>{{ emoticon?.name }}</ion-card-content>
+  <ion-card-content>{{ emoticon.name }}</ion-card-content>
 
   <ion-button
+    *ngIf="emoticon.state == State.UnSold"
     fill="clear"
-    [color]="emoticon?.sold ? 'light' : 'primary'"
-    [disabled]="!!emoticon?.sold"
+    color="primary"
     (click)="purchase()"
+    >Purchase</ion-button
   >
-    {{ emoticon?.sold ? "SOLD" : "Purchase" }}
-  </ion-button>
+  <ion-button
+    *ngIf="emoticon.state == State.Process"
+    fill="clear"
+    color="secondary"
+    disabled="true"
+    >Processing</ion-button
+  >
+  <ion-button
+    *ngIf="emoticon.state == State.Sold"
+    fill="clear"
+    color="medium"
+    disabled="true"
+    >SOLD</ion-button
+  >
 </ion-card>

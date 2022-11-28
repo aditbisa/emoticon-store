@@ -1,17 +1,21 @@
 ion-card {
-    width: 175px;
-    text-align: center;
-    padding: 10px;
-    
-    &.sold {
-        opacity: .7;
-    }
+  width: 175px;
+  text-align: center;
+  padding: 10px;
+
+  ion-card-content {
+    height: 2.75rem;
+  }
+
+  &.sold svg {
+    filter: grayscale(1);
+  }
 }
 
 svg {
-    height: 100px;
-    width: 100px;
-    text {
-        font-size: 80px;
-    }
+  height: 100px;
+  width: 100px;
+  text {
+    font-size: 80px;
+  }
 }

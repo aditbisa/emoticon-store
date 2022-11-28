@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment as env } from '@env';
-import { Subject } from 'rxjs';
+import { BigNumber } from '@core/schema';
+import { debounceTime, from, map, Observable, Subject } from 'rxjs';
 import { Contract } from 'web3-eth-contract';
 import { Web3Service } from './web3.service';
 
@@ -48,21 +49,30 @@ export class ContractService {
     });
   }
 
-  public async purchase(account: string, codePoint: number, price: string) {
-    return this.contract.methods
+  public purchase(account: string, codePoint: number, price: string): Observable<any> {
+    const promise = this.contract.methods
       // @ts-ignore: 1 error, methods is any type.
       .purchase(codePoint)
       .send({
         from: account,
         value: price,
         gas: PURCHASE_GAS,
-      })
-      .then((result) => {
+      });
+    return from(promise).pipe(
+      // TODO: catch event when using websocket or use pooling
+      debounceTime(1500),
+      map((result) => {
         this.Purchase$.next({
           codePoint,
           buyer: account,
         });
         return result;
-      });
+      })
+    );
+  }
+
+  public async getPurchased(): Promise<BigNumber[]> { // BigNumber
+    // @ts-ignore: 1 error, methods is any type.
+    return this.contract.methods.getPurcashed().call();
   }
 }
