@@ -23,7 +23,10 @@ export class Web3Service {
       // Modern
       this.web3Provider = ethereum;
       try {
-        await this.web3Provider.enable();
+        await this.web3Provider.send('eth_requestAccounts');
+        // Fix: Metamask still not up to the latest.
+        // HTTP provider didn't support subscription.
+        this.web3Provider.supportsSubscriptions = () => false;
       } catch (error) {
         console.error('User denied account access', error);
       }
