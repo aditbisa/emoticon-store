@@ -32,9 +32,7 @@ export class Web3Service {
       this.web3Provider = web3.currentProvider;
     } else {
       // Dev with Local Ganache
-      this.web3Provider = new Web3.providers.HttpProvider(
-        'http://172.30.144.1:7545' //http://localhost:7545'
-      );
+      this.web3Provider = new Web3.providers.HttpProvider(env.testProvider);
     }
 
     this.web3 = new Web3(this.web3Provider);

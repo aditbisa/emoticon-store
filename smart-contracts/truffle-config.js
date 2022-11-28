@@ -1,11 +1,3 @@
-var os = require("os");
-
-// Dev host in my WSL2
-var devHost = "127.0.0.1";
-if (os.homedir().startsWith("/home/adit")) {
-  devHost = os.hostname() + ".local";
-}
-
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -50,7 +42,7 @@ if (os.homedir().startsWith("/home/adit")) {
  */
 
 require('dotenv').config({ path: '../.env' });
-const { OWNER_ADDRESS } = process.env;
+const { OWNER_ADDRESS, TEST_PROVIDER } = process.env;
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -74,7 +66,7 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: devHost,
+      host: TEST_PROVIDER,
       port: 7545,
       network_id: "*",       // Any network (default: none)
       from: OWNER_ADDRESS,
