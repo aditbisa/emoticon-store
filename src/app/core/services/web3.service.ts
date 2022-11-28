@@ -12,8 +12,7 @@ export class Web3Service {
   private web3Provider: any;
   private web3!: Web3;
 
-  constructor() {
-  }
+  constructor() {}
 
   public async setup() {
     if (this.web3) {
@@ -40,12 +39,17 @@ export class Web3Service {
 
     this.web3 = new Web3(this.web3Provider);
   }
-  
+
   public getContract(): Contract<typeof env.contractAbi> {
     return new this.web3.eth.Contract(env.contractAbi, env.contractAddress);
   }
-  
-  public getAccounts(): Promise<string[]> {
+
+  public async getAccounts(): Promise<string[]> {
     return this.web3.eth.getAccounts();
+  }
+
+  public async getActiveAccount(): Promise<string> {
+    const accounts = await this.web3.eth.getAccounts();
+    return accounts[0];
   }
 }
