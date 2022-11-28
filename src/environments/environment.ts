@@ -5,10 +5,10 @@ import EmoticonStore from '@contracts/EmoticonStore.json';
  */
 export const environment = {
   production: false,
-  contractAddress: '0x00',
+  contractAddress: '0x2484c202b115A52a87684bc0812634E5AE7C1361',
   contractAbi: EmoticonStore.abi,
-  testOwnerAddress: '0x00',
-  testBuyerAddress: '0x00',
+  testOwnerAddress: '0xA15D2caeF71Dc861897ACd6584fB1469Bf7A896a',
+  testBuyerAddress: '0x1ECD935F494D8B90995a5C9c63769d4f840F840c',
 };
 
 /*
