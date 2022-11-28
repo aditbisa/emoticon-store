@@ -1,14 +1,14 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 import EmoticonStore from '@contracts/EmoticonStore.json';
 
+/**
+ * Some value will be replaced by `setenv.js`.
+ */
 export const environment = {
   production: false,
-  contractAddress: '0xF4f5e783fc40232EEE3D74F152bD153E05a5B6f4',
+  contractAddress: '0x00',
   contractAbi: EmoticonStore.abi,
-  testOwnerAddress: '0x67C8A52BA4F82c8D5AeBA928672eaadb2497Fb99',
-  testBuyerAddress: '0xB3cBADf262feb733fA3895A56c371d0C42492707',
+  testOwnerAddress: '0x00',
+  testBuyerAddress: '0x00',
 };
 
 /*
@@ -18,4 +18,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+import 'zone.js/plugins/zone-error';
