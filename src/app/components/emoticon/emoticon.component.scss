@@ -2,6 +2,10 @@ ion-card {
     width: 175px;
     text-align: center;
     padding: 10px;
+    
+    &.sold {
+        opacity: .7;
+    }
 }
 
 svg {

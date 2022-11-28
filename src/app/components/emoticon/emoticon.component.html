@@ -1,13 +1,20 @@
-<ion-card>
+<ion-card [class.sold]="emoticon?.sold">
   <svg>
-    <text text-anchor="middle" x="50%" y="80%">{{emoticon?.character}}</text>
+    <text text-anchor="middle" x="50%" y="80%">{{ emoticon?.character }}</text>
   </svg>
 
   <ion-card-header>
-    <ion-card-title>#{{emoticon?.codePoint}}</ion-card-title>
+    <ion-card-title>#{{ emoticon?.codePoint }}</ion-card-title>
   </ion-card-header>
 
-  <ion-card-content>{{emoticon?.name}}</ion-card-content>
+  <ion-card-content>{{ emoticon?.name }}</ion-card-content>
 
-  <ion-button fill="clear">Purchase</ion-button>
+  <ion-button
+    fill="clear"
+    [color]="emoticon?.sold ? 'light' : 'primary'"
+    [disabled]="!!emoticon?.sold"
+    (click)="purchase()"
+  >
+    {{ emoticon?.sold ? "SOLD" : "Purchase" }}
+  </ion-button>
 </ion-card>
