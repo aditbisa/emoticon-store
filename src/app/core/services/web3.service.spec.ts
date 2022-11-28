@@ -30,6 +30,11 @@ describe('Web3Service', () => {
     expect(accounts.includes(buyerAccount)).toBeTrue();
   });
 
+  it('should retrieve the active account', async () => {
+    const account = await service.getActiveAccount();
+    expect(account).toBe(buyerAccount);
+  });
+
   describe('should retrieve the contract', async () => {
     let contract: Contract<typeof env.contractAbi>;
 
