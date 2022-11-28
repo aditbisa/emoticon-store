@@ -49,7 +49,8 @@ if (os.homedir().startsWith("/home/adit")) {
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-// require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
+const { OWNER_ADDRESS } = process.env;
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -76,6 +77,7 @@ module.exports = {
       host: devHost,
       port: 7545,
       network_id: "*",       // Any network (default: none)
+      from: OWNER_ADDRESS,
     },
     //
     // An additional network, but with some advanced options…
