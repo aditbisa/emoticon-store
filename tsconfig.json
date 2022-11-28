@@ -28,6 +28,9 @@
       "@core/*": ["src/app/core/*"],
       "@components/*": ["src/app/components/*"],
       "@contracts/*": ["smart-contracts/build/contracts/*"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
