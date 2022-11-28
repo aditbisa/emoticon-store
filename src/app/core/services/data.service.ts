@@ -97,7 +97,7 @@ export class DataService {
         return this.contractService.purchase(
           buyerAddress,
           codePoint,
-          `${codePoint}0000000000` // 1 285 120 000 000 000
+          `${codePoint}0000000000` // 0. 001 285 120 000 000 000 ETH
         );
       }),
       tap((result) => {
