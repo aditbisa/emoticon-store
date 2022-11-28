@@ -3,6 +3,7 @@ import Contract from 'web3-eth-contract';
 import { environment as env } from '@env';
 import { Web3Service } from './web3.service';
 
+// Need local network! And don't forget to migrate the contract and update the address in env.
 const ownerAccount = env.testOwnerAddress;
 const buyerAccount = env.testBuyerAddress;
 
@@ -10,8 +11,6 @@ describe('Web3Service', () => {
   let service: Web3Service;
 
   beforeEach(async () => {
-    // Need Local Ganache!
-    // And don't forget migrate contract and update the address in env.
     (window as any)['ethereum'] = null;
     (window as any)['web3'] = null;
 
