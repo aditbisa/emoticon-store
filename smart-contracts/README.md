@@ -1,7 +1,11 @@
-# How to (DEV)
+# How To (DEV)
 
 1. Setup local blockchain network (e.g. using Ganache).
-2. Update `OWNER_ADDRESS` in [parent dotenv file](../.env) with last account from the network.
+2. Update `TEST_PROVIDER` in `.env`
+2. Run env update script from root project
+    ```
+    node ./setenv.js
+    ```
 2. Run migration:
     ```
     truffle migrate
