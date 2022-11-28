@@ -9,6 +9,7 @@ export const environment = {
   contractAbi: EmoticonStore.abi,
   testOwnerAddress: '0xA15D2caeF71Dc861897ACd6584fB1469Bf7A896a',
   testBuyerAddress: '0x1ECD935F494D8B90995a5C9c63769d4f840F840c',
+  testProvider: 'http://127.0.0.1:7545',
 };
 
 /*

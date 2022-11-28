@@ -11,7 +11,9 @@ fs.readFile(envFile, { encoding: 'utf8' })
     let txt = env_script
       .replace(/^(\s*contractAddress\:)\s*.*$/m, `$1 '${process.env.CONTRACT_ADDRESS}',`)
       .replace(/^(\s*testOwnerAddress\:)\s*.*$/m, `$1 '${process.env.OWNER_ADDRESS}',`)
-      .replace(/^(\s*testBuyerAddress\:)\s*.*$/m, `$1 '${process.env.TEST_BUYER_ADDRESS}',`);
+      .replace(/^(\s*testBuyerAddress\:)\s*.*$/m, `$1 '${process.env.TEST_BUYER_ADDRESS}',`)
+      .replace(/^(\s*testProvider\:)\s*.*$/m, `$1 '${process.env.TEST_PROVIDER}',`)
+      ;
     return fs.writeFile(envFile, txt);
   })
   .then(() => {
